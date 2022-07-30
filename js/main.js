@@ -1,25 +1,24 @@
-let tab = document.querySelector('.tabs__header');
-tab.addEventListener('click', func);
+let tabs__header = document.querySelectorAll(".tab__header-item");
+let tab__body = document.querySelectorAll(".tab__body-item");
 
-function func(event) {
-  console.log(event);
+tabs__header.forEach(function (tab, tab_index) {
+  tab.addEventListener("click", function () {
 
-  if (event.target.className == 'tab__header-item') {
-    let dataTab = event.target.getAttribute('data-tab');
-    let tabs = document.querySelectorAll('.tab__header-item');
+    tabs__header.forEach(function (tab) {
+      tab.classList.remove("active"); //Сначала удаляем у всех класс active
+    });
 
-    for (let i = 0; i < tabs.length; i++) {
-      tabs[i].classList.remove('active');
-    }
-    event.target.classList.add('active');
+    tab.classList.add("active"); //Затем добавяем класс active по нажатию
 
-    let tabBody = document.querySelectorAll('.tab__body-item');
-    for (let i = 0; i < tabBody.length; i++) {
-      if (dataTab == i) {
-        tabBody[i].style.display = 'block';
-      } else {
-        tabBody[i].style.display = 'none';
+    tab__body.forEach(function (content, content_index) {
+      if (content_index == tab_index) {
+        content.style.display = "block";
       }
-    }
-  };
-};
+      else {
+        content.style.display = "none";
+      }
+    });
+
+  });
+
+});
