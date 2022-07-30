@@ -43,9 +43,9 @@ body {
 	flex: 0 1 33.333%;
 	padding: 20px;
 }
-.tab__body-item:first-child {
-	display: block;
-}
+// .tab__body-item:first-child {
+// 	display: block;
+// }
 .tabs__body {
 	padding: 20px;
 }
@@ -53,7 +53,9 @@ body {
 	display: none;
 }
 .active{
-	display: flex;
 	box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.1);
 	border-radius: 8px;
+}
+.is-active {
+	display: block;
 }
